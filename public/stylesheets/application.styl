@@ -1,0 +1,350 @@
+@import "whitespace-reset.css"
+
+html
+  box-sizing border-box
+
+*, *:before, *:after
+  box-sizing inherit
+
+body
+  margin 0 auto
+  font 16px Helvetica, Arial, sans-serif
+  font-weight lighter
+  letter-spacing 0.05em
+
+dt, dd
+  display inline-block
+
+label,
+#add-todo
+  cursor pointer
+
+label
+  img
+    display none
+  input
+    visibility hidden
+    display block
+    height 0
+    width 0
+    position absolute
+    overflow hidden
+
+a
+  text-decoration none
+
+.column
+  position relative
+
+#menu-toggle
+  display none
+
+.left-column
+  float left
+  width 335px
+  padding-top 70px
+  background #464f77
+  height 100vh
+  .nav-left
+    &:before
+      content ""
+      display block
+    li
+      padding-top 10px
+      box-sizing border-box
+      cursor pointer
+      &.active
+        background #383f5f
+        a
+          color #ffffff
+    a
+      color #a7aaba
+      text-decoration none
+
+.logo,
+.nav-left p
+  display inline-block
+  color #ffffff
+
+.all-logo,
+.completed-logo
+  margin-right 5px
+
+.top-title
+  font-size 18px
+
+.add
+  margin 0 10px 0 13px
+
+.nav-left p,
+.nav-left a
+  vertical-align 10px
+
+.nav-left li.active span,
+.nav-left li.active #all-todos-count,
+.nav-left li.active #complete-todos-count
+  color #ffffff
+  background-color #148fd5
+
+.alltodos span,
+.alltodos #all-todos-count,
+.completed #complete-todos-count,
+.completed span
+  float right
+  margin-right 35px
+  color rgba(255, 255, 255, 0.6)
+  font-size 14px
+  text-align center
+  background #6b7292
+
+.alltodos span,
+.completed span
+  margin-right 40px
+
+.alltodos #all-todos-count,
+.completed #complete-todos-count
+  color rgba(255, 255, 255, 0.7)
+  font-size 14px
+  width 25px
+  height 16px
+  background-color #6b7292
+  border-radius 35%
+  margin-top 5px
+  vertical-align bottom
+
+.todos-count
+  font-size 14px
+  color rgba(255, 255, 255, 0.6)
+  background-color #6b7292
+  border-radius 100%
+  padding 0 3.5px
+
+.alltodos a, 
+.completed a
+  margin-left 100px
+
+.alltodos
+  li
+    & ~ li
+      a
+        padding-left 35px
+
+.completed
+  padding 40px 0 0 0
+  li
+    & ~ li
+      a
+        padding-left 35px
+        list-style-position inside
+        text-decoration line-through
+
+.main-section
+  overflow hidden
+  padding 75px 80px 0 20px
+  box-sizing border-box
+  .table-title
+    font-size 21px
+    margin-left 15px
+    margin-bottom 5px
+  .todos-count
+    display block
+    margin-left 15px
+    color #ffffff
+    font-size 14px
+    text-align center
+    background #148fd5
+  .sign
+    margin 0 10px 0 5px
+    font-size 25px
+  label
+    &:hover
+      color #148fd5
+
+table
+  tr
+    width 100%
+    td
+      &.delete
+        padding-left 10px
+        padding-right 10px
+  thead
+    display block
+    margin 30px 0 10px 0
+    text-align left
+    th
+      font-weight lighter
+      color #148fd5
+  &.no-spacing
+    border-spacing 0
+    border-collapse collapse
+  tbody
+    tr
+      td
+        &.delete
+          img
+            margin-left 0
+            text-align center
+  td
+    &.list-item
+      &:hover
+        background-color rgba(0,100,205, 0.2)
+        cursor pointer
+
+td
+  padding 15px
+  border-top 1px solid #e7e7e7
+  width 100%
+  &.delete
+    &:hover
+      background-color rgba(255, 0, 0, 0.4)
+      cursor pointer
+
+tbody
+  td
+    & + td
+      text-align right
+
+.itemcompleted
+  text-decoration line-through
+  color #e7e7e7
+  #edit-form
+    color #b3b3b3
+
+[type=checkbox]:checked
+  & + span
+    background url("images/completedbox.png") center
+
+form
+  padding 35px 35px 35px 25px
+  margin 0 auto
+  box-sizing border-box
+  dl
+    margin-bottom 20px
+    &:last-child
+      margin-bottom 0
+  dt
+    width 105px
+    padding-top 8px
+    box-sizing border-box
+    vertical-align top
+  dd
+    box-sizing border-box
+    vertical-align top
+
+.checkboxlabel
+  margin-right 8px
+  display inline-block
+  vertical-align middle
+  border 1px solid #9c9c9c
+  width 14px
+  height 14px
+
+.modal
+  display none
+  position absolute
+  top 105px
+  left 60%
+  max-width 575px
+  height auto
+  margin 0 0 0 -345px
+  border 1px solid #efefef
+  background #ffffff
+  z-index 2
+
+.modal-layer
+  display none
+  position fixed
+  top 0
+  right 0
+  bottom 0
+  left 0
+  z-index 1
+  content ""
+  background rgba(0, 0, 0, .2)
+
+#edit-form
+  color #060606
+  &:hover
+    color #148fd5
+
+input[type="text"],
+textarea
+  width 395px
+  height 35px
+  padding 7px 6px
+  font 14px Helvetica, Arial, sans-serif
+  font-weight lighter
+  box-sizing border-box
+
+textarea
+  height auto
+  resize none
+
+select
+  width 115px
+  height 35px
+  padding 7px 6px
+  -webkit-appearance menulist
+  -moz-appearanc none
+  box-sizing border-box
+  background #ffffff
+  border-radius 0px
+
+.separator
+  margin 0 7px
+
+.button-group
+  text-align left
+
+.button
+  display inline-block
+  padding 7px 25px
+  margin-bottom 5px
+  font 16px Helvetica, Arial, sans-serif
+  font-weight lighter
+  color #ffffff
+  cursor pointer
+  border none
+  border-radius 5px
+  background #148fd5
+  box-sizing border-box
+
+.save
+  padding 7px 70px
+  margin-right 20px
+
+@media (max-width: 650px)
+  .column
+    margin 0
+    position relative
+  .left-column
+    margin-left 0
+    display none
+  label
+    img
+      display block
+      padding 20px
+  .move
+    margin-left 360px
+  .tabbing-left
+    display block
+    position absolute
+    top 0
+    bottom 0
+    right 0
+    left 0
+  .tabbing-main
+    position relative
+    left 360px
+    width auto
+  .main-section
+    padding-top 5px
+  .modal
+    left 85%
+  #form
+    width 400px
+  select
+    width auto
+  .button
+    display block
+    margin 5px

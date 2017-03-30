@@ -1,0 +1,21 @@
+<td class="list-item">     
+  <label>
+    <input type="checkbox" />
+    <span class="checkboxlabel"></span>
+  </label>
+  <a href="#" id="edit-form">{{title}}
+  {{#if year}}
+    {{#if month}}
+      - <span class="due_date">{{month}}/{{year}}</span> 
+    {{/if}}
+  {{else}}
+  - <span class="due_date">No Due Date</span>
+  {{/if}} 
+  </a> 
+</td>              
+<td class="delete">
+  <a href="#" class="delete">
+    <img src="images/icon_delete.png" alt="delete" />
+  </a>
+</td>
+

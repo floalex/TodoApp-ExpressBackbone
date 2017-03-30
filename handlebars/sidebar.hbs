@@ -1,0 +1,39 @@
+
+  <ul class="alltodos">
+  
+    <li>
+      <a href="#" class="title">
+        <img src="images/todo_icon.png" class="all-logo" alt="All Todos"/>
+        <p class="top-title">All Todos</p>
+      </a>
+      <div id="all-todos-count" class="count">{{total}}</div>
+    </li>
+    {{#each todos}}
+      <li>
+        <a href="#" class="title">{{date}}</a>
+        <span class="todos-count count">{{count}}</span>
+      </li>
+    {{/each}}
+  
+    
+  </ul>
+  
+  <ul class="completed">
+  
+      <li>
+        <a href="#" class="title">
+          <img src="images/completed_icon.png" class="completed-logo" alt="completed" />
+          <p class="top-title">Completed</p>
+        </a>
+        <div id="complete-todos-count" class="count">{{completed_total}}</div>
+      </li>
+      {{#each completes}}
+        <li>
+          <a href="#" class="title">{{date}}</a>
+          <span class="todos-count count">{{count}}</span>
+        </li>
+      {{/each}}
+    
+  </ul>
+
+
