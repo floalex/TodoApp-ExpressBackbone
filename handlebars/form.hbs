@@ -1,15 +1,27 @@
-<form id="form" action="#" method="post">
+<div class="modal-layer"></div>
+<div class="modal">
+<form id="form" action="#" method="post" 
+  {{#if id}}
+  data-id="{{id}}"
+  {{/if}} >
   <fieldset>
     <dl>
       <dt>Title</dt>             
       <dd>
-        <input type="text" name="title" id="title" />
+        <input type="text" name="title" id="title" 
+          {{#if title}}
+          value = "{{title}}"
+          {{/if}}
+        />
       </dd>
     </dl>
     <dl>
       <dt>Due Date</dt>
       <dd>
         <select id="day" name="day">
+          {{#if day}}
+          <option value="{{day}}" selected>{{day}}</option>
+          {{/if}}
           <option value=" ">Day</option>
           <option value="01">1</option>
           <option value="02">2</option>
@@ -47,6 +59,9 @@
       </dd><!--
       --><dd>
         <select id="month" name="month">
+          {{#if month}}
+          <option value="{{month}}" selected>{{month}}</option>
+          {{/if}}
           <option value="">Month</option>
           <option value="01">January</option>       
           <option value="02">February</option>       
@@ -65,6 +80,9 @@
       </dd><!--
        --><dd>
         <select id="year" name="year">
+          {{#if year}}
+          <option value="{{year}}" selected>{{year}}</option>
+          {{/if}}
           <option value="">Year</option>
           <option value="14">2014</option>       
           <option value="15">2015</option>       
@@ -84,7 +102,11 @@
     <dl>
       <dt>Description</dt>
       <dd>
-        <textarea rows="6" cols="120" name="description" id="description"></textarea>
+        <textarea rows="6" cols="120" name="description" id="description">
+        {{#if description}}
+        {{description}}
+        {{/if}}
+        </textarea>
       </dd>
     </dl>
     <dl>
@@ -99,3 +121,4 @@
     </dl>
   </fieldset>
 </form>
+</div>

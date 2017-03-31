@@ -4,16 +4,11 @@ var IndexView = Backbone.View.extend({
   },
   template: App.templates.index,
   events: {
-    "click #add-todo": "openBlankForm",
-    "click .modal-layer": "closeForm",
+    "click #add-todo": "openBlankForm",    
   },
   openBlankForm: function(e) {
     e.preventDefault();
-    this.form = new FormView();
-  },
-  closeForm: function(e) {
-    e.preventDefault();
-    this.form.fadeOut();
+    new FormView();
   },
   render: function() {
     this.$el.html(this.template());

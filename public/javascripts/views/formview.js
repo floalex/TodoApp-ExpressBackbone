@@ -1,21 +1,24 @@
 var FormView = Backbone.View.extend({
-  attributes: {
-    class: "modal",
-  },
+  el: ".modal-section",
   template: App.templates.form,
   duration: 400,
   events: {    
+    "click .modal-layer": "closeForm",
   },
   open: function() {
-    this.$el.css({
+    $(".modal").css({
       top: $(window).scrollTop() + 200
     });
-    this.$el.add($(".modal-layer")).fadeIn(this.duration);
+    $(".modal").add($(".modal-layer")).fadeIn(this.duration);
+  },
+  closeForm: function(e) {
+    e.preventDefault();
+    this.fadeOut();
   },
   fadeOut: function(e) {
     $(".modal-layer").stop().fadeOut(this.duration);
-    this.$el.stop().fadeOut(this.duration, function() {
-      this.remove();
+    $(".modal").stop().fadeOut(this.duration, function() {
+      $(".modal").remove();
     }.bind(this));
   },
   render: function() {
@@ -25,7 +28,6 @@ var FormView = Backbone.View.extend({
     this.open();
   },
   initialize: function() {
-    this.$el.appendTo(App.el.find("#index"));
     this.render();
   },
 });

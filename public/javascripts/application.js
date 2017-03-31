@@ -3,14 +3,14 @@ var App = {
   el: $(".column"),
   indexView: function() {
     this.index = new IndexView();
-    this.renderTodos();
+    this.addAllTodos();
     this.renderSidebar();
     this.bindEvents();
   },
-  renderTodos: function() {
-    this.todos.each(this.renderTodoView);
+  addAllTodos: function() {
+    this.todos.each(this.addOne);
   },
-  renderTodoView: function(todo) {
+  addOne: function(todo) {
     new TodoView({
       model: todo
     });
@@ -20,7 +20,11 @@ var App = {
       collection: this.todos
     });
   },
+  setStorage: function() {
+    localStorage.setItem('todo_items', JSON.stringify(this.todos.toJSON()));
+  },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
+    $(window).on("unload", this.setStorage.bind(this));
   }
 };
