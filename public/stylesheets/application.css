@@ -213,7 +213,7 @@ tbody td + td {
   color: #b3b3b3;
 }
 [type=checkbox]:checked + span {
-  background: url("images/completedbox.png") center;
+  background: url("../images/completedbox.png") center;
 }
 form {
   padding: 35px 35px 35px 25px;

@@ -17,7 +17,7 @@ var Todo = Backbone.Model.extend({
   formatDate: function() {
     var date = "No Due Date";
     if (this.get('month') && this.get('year')) {
-      date = this.get('month') + '/' + this.get('year').slice(-2);
+      date = this.get('month') + '/' + this.get('year');
     }
     this.set("date", date);
   },

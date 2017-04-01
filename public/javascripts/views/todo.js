@@ -16,6 +16,10 @@ var TodoView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
     this.$el.appendTo(App.el.find("#item-area"));
+    if (this.model.get("completed")) {
+      this.$el.toggleClass("itemcompleted");
+      this.$el.find(":checkbox").prop("checked", true);
+    }
   },
   initialize: function() {
     this.render();
