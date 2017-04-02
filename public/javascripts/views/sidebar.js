@@ -5,6 +5,15 @@ var SidebarView = Backbone.View.extend({
   },
   template: App.templates.sidebar,
   events: {
+    "click .alltodos .completed li": "navigate"
+  },
+  navigate: function(e) {
+    e.preventDefault();
+    var $current = $(e.target).closest("li");
+    var class_name = "active";
+    $current.closest("nav").find("." + class_name).removeClass(class_name);
+    $current.addClass(class_name);
+    this.trigger("navigate_todos");
   },
   render: function() {
     this.$el.html(this.template({

@@ -59,7 +59,13 @@ this["JST"]["form"] = Handlebars.template({"1":function(container,depth0,helpers
 },"useData":true});
 
 this["JST"]["index"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<input type=\"checkbox\" id=\"menu-toggle\" /><label for=\"menu-toggle\"><img src=\"images/toggle_list.png\" alt=\"toggle\" id=\"toggle-left\"/></label><div class=\"left-column\"></div><div class=\"main-section\"><dl class=\"table-title\"><dt></dt><dd><span class=\"todos-count\"></span></dd></dl><table class=\"no-spacing\"><thead><tr id=\"add-todo\"><th><img src=\"images/plus_icon.png\" class=\"logo add\" alt=\"Add\" /> Add new to do</th></tr></thead><tbody id=\"item-area\"></tbody></table></div><div class=\"modal-section\"></div>";
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<input type=\"checkbox\" id=\"menu-toggle\" /><label for=\"menu-toggle\"><img src=\"images/toggle_list.png\" alt=\"toggle\" id=\"toggle-left\"/></label><div class=\"left-column\"></div><div class=\"main-section\"><dl class=\"table-title\"><dt>"
+    + alias4(((helper = (helper = helpers.selected_title || (depth0 != null ? depth0.selected_title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"selected_title","hash":{},"data":data}) : helper)))
+    + "</dt><dd><span class=\"todos-count\">"
+    + alias4(((helper = (helper = helpers.selected_count || (depth0 != null ? depth0.selected_count : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"selected_count","hash":{},"data":data}) : helper)))
+    + "</span></dd></dl><table class=\"no-spacing\"><thead><tr id=\"add-todo\"><th><img src=\"images/plus_icon.png\" class=\"logo add\" alt=\"Add\" /> Add new to do</th></tr></thead><tbody id=\"item-area\"></tbody></table></div><div class=\"modal-section\"></div>";
 },"useData":true});
 
 this["JST"]["sidebar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {

@@ -8,7 +8,7 @@ var App = {
     this.bindEvents();
   },
   addAllTodos: function() {
-    this.todos.each(this.addOne);
+    this.selected_todos.each(this.addOne);
   },
   addOne: function(todo) {
     new TodoView({
@@ -25,6 +25,7 @@ var App = {
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
+    this.listenTo(this.index, "navigate_todos", this.navigateTodos);
     $(window).on("unload", this.setStorage.bind(this));
   }
 };

@@ -10,6 +10,7 @@ var TodoView = Backbone.View.extend({
   events: {
     "click a#edit-form": "openEdit",
     "click .list-item": "toggleComplete",
+    "click .delete": "deleteItem"
   },
   openEdit: function() {
     new FormView({ model: this.model });
@@ -17,6 +18,13 @@ var TodoView = Backbone.View.extend({
   },
   toggleComplete: function(e) {
     this.model.toggle();
+  },
+  deleteItem: function(e) {
+    var result = confirm("Are you sure you want to delete this contact?");
+    if (result) {
+      App.todos.remove(this.model);
+    } 
+    return false;
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));

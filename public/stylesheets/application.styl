@@ -325,19 +325,23 @@ select
     img
       display block
       padding 20px
-  .move
-    margin-left 360px
-  .tabbing-left
-    display block
-    position absolute
-    top 0
-    bottom 0
-    right 0
-    left 0
-  .tabbing-main
-    position relative
-    left 360px
-    width auto
+  #menu-toggle
+    &:checked
+        & + label
+            img
+                margin-left 360px
+        & ~ .left-column
+            display block
+            position absolute
+            top 0
+            bottom 0
+            right 0
+            left 0
+        & ~ .main-section
+            display block
+            position relative
+            left 360px
+            width auto
   .main-section
     padding-top 5px
   .modal

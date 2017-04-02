@@ -332,10 +332,10 @@ select {
     display: block;
     padding: 20px;
   }
-  .move {
+  #menu-toggle:checked + label img {
     margin-left: 360px;
   }
-  .tabbing-left {
+  #menu-toggle:checked ~ .left-column {
     display: block;
     position: absolute;
     top: 0;
@@ -343,7 +343,8 @@ select {
     right: 0;
     left: 0;
   }
-  .tabbing-main {
+  #menu-toggle:checked ~ .main-section {
+    display: block;
     position: relative;
     left: 360px;
     width: auto;
