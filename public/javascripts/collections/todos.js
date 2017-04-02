@@ -46,7 +46,6 @@ var Todos = Backbone.Collection.extend({
     } 
   },
   sortDateList: function(source) {
-    console.log(source);
     var result = source.filter(function(item) { 
       return item.date !== "No Due Date"; 
     }).sort(this.compareDates);
