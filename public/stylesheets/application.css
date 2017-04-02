@@ -48,22 +48,22 @@ a {
   background: #464f77;
   height: 100vh;
 }
-.left-column .nav-left:before {
+.nav-left:before {
   content: "";
   display: block;
 }
-.left-column .nav-left li {
+.nav-left li {
   padding-top: 10px;
   box-sizing: border-box;
   cursor: pointer;
 }
-.left-column .nav-left li.active {
+.nav-left li.active {
   background: #383f5f;
 }
-.left-column .nav-left li.active a {
+.nav-left li.active a {
   color: #fff;
 }
-.left-column .nav-left a {
+.nav-left a {
   color: #a7aaba;
   text-decoration: none;
 }

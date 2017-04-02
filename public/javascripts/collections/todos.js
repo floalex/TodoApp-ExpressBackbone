@@ -1,7 +1,7 @@
 var Todos = Backbone.Collection.extend({
   model: Todo,
   checkID: function() {
-    return this.length > 0 ? this.last().get('id') : 0;
+    return this.length > 0 ? this.max(function (model) { return model.get('id'); }).get('id') : 0;
   },
   nextID: function() {
     this.last_id++;

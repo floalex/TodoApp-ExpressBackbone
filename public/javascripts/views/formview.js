@@ -4,6 +4,7 @@ var FormView = Backbone.View.extend({
   duration: 400,
   events: {    
     "submit #form": "saveForm",
+    "click .complete": "markComplete",
     "click .modal-layer": "closeForm",
   },
   getFormObject: function(form) {
@@ -20,10 +21,24 @@ var FormView = Backbone.View.extend({
     id ? this.updateTodo($f) : this.createTodo($f);
     this.closeForm();
   },
+  // saveForm: function(e) {
+  //   e.preventDefault();
+  //   var $f = $(e.target);
+  //   (this.model) ? this.updateTodo($f) : this.createTodo($f);
+  //   this.closeForm();
+  // },
   createTodo: function($f) {    
     var item = this.getFormObject($f);
+    console.log(App.todos.last_id);
     item.id = App.todos.nextID();
+    console.log(item.id);
+    console.log(item);
     App.todos.add(item);
+    console.log(App.todos);
+  },
+  updateTodo: function($f) { 
+    var item = this.getFormObject($f);
+    this.model.set(item);
   },
   open: function() {
     $(".modal").css({
@@ -37,6 +52,15 @@ var FormView = Backbone.View.extend({
     $(".modal").stop().fadeOut(this.duration, function() {
       $(".modal").remove();
     }.bind(this));
+  },
+  markComplete: function(e) {
+    e.preventDefault();
+    if (this.model) {
+      this.model.set("completed", true);
+      this.closeForm();
+    } else {
+      alert("Your item doesn't exist yet.\nPlease complete and save the Todo first!");
+    }
   },
   render: function() {
     this.$el.html(this.template(
