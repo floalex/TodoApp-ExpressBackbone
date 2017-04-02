@@ -3,15 +3,20 @@ var TodoView = Backbone.View.extend({
   attributes: function() {
     // Return model data
     return {
-      "data-id": Number(this.model.get('id'))
+      "data-id": Number(this.model.get('id'))      
     };
   },
   template: App.templates.todo,
   events: {
     "click a#edit-form": "openEdit",
+    "click .list-item": "toggleComplete",
   },
   openEdit: function() {
     new FormView({ model: this.model });
+    return false;
+  },
+  toggleComplete: function(e) {
+    this.model.toggle();
   },
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
