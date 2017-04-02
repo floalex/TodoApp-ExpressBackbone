@@ -4,7 +4,8 @@ var Todos = Backbone.Collection.extend({
     return this.length > 0 ? this.last().get('id') : 0;
   },
   nextID: function() {
-    return this.last_id++;
+    this.last_id++;
+    return this.last_id;
   },
   completedList: function() {
     return this.toJSON().filter(function(todo) {

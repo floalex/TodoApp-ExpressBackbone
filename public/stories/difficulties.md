@@ -7,3 +7,9 @@
 - change `this.$el` to `$(".modal")` in open and close methods
 - since I want to pass the model's data in form view in editing mode, change 
   form.hbs to pass in "if"
+
+2. Ghost View When Submitting Form
+- App will create multiple todo items after you open form on existing items by 
+  simply closing the form
+- Solution: Add `this.undelegateEvents();` in closeForm method, ensure no events
+  attached to the view

@@ -3,7 +3,7 @@ var TodoView = Backbone.View.extend({
   attributes: function() {
     // Return model data
     return {
-      "data-id": this.model.get('id')
+      "data-id": Number(this.model.get('id'))
     };
   },
   template: App.templates.todo,
