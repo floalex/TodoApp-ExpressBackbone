@@ -1,7 +1,7 @@
 var Todos = Backbone.Collection.extend({
   model: Todo,
   checkID: function() {
-    return this.length > 0 ? this.max(function (model) { return model.get('id'); }).get('id') : 0;
+    return this.length > 0 ? this.last().get('id') : 0;
   },
   nextID: function() {
     this.last_id++;
@@ -40,34 +40,37 @@ var Todos = Backbone.Collection.extend({
       var by_date = {};
       by_date.date = prop;
       by_date.count = temp_obj[prop];  
+      by_date.month = by_date.date.split("/")[0];
+      by_date.year = by_date.date.split("/")[1];
       result.push(by_date);
     } 
   },
   sortDateList: function(source) {
-    var result;
-    result = source.filter(function(item) { 
+    console.log(source);
+    var result = source.filter(function(item) { 
       return item.date !== "No Due Date"; 
-    }).sort(function(a, b) {
-      if (Number(a.year) < Number(b.year)) {
-        return -1;
-      } else {
-        if (Number(a.year) > Number(b.year)){
-          return 1;
-        } else {
-          if (Number(a.month) < Number(b.month)) {
-            return -1;
-          }                        
-          if (Number(a.month) > Number(b.month)) {
-            return 1;
-          }                        
-          return 0;
-        }
-      }
-    });
+    }).sort(this.compareDates);
     var no_date = source.filter(function(el) {
       return el.date === "No Due Date";
     });
-    return source = no_date.concat(result);   // no date at top   
+    return no_date.concat(result);   // no date at top   
+  },
+  compareDates: function(a, b) {
+    if (Number(a.year) < Number(b.year)) {
+      return -1;
+    } else {
+      if (Number(a.year) > Number(b.year)){
+        return 1;
+      } else {
+        if (Number(a.month) < Number(b.month)) {
+          return -1;
+        }                        
+        if (Number(a.month) > Number(b.month)) {
+          return 1;
+        }                        
+        return 0;
+      }
+    }
   },
   readStorage: function() {
     var todos = JSON.parse(localStorage.getItem('todo_items'));
@@ -77,8 +80,5 @@ var Todos = Backbone.Collection.extend({
     this.readStorage();
     this.last_id = this.checkID();
     this.on("update change", App.indexView.bind(App));
-    this.on("update change", this.sort);
-    this.comparator = "completed";
-    this.sort();
   }
 });

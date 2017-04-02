@@ -17,24 +17,13 @@ var FormView = Backbone.View.extend({
   saveForm: function(e) {
     e.preventDefault();
     var $f = $(e.target);
-    var id = Number($f.attr("data-id"));
-    id ? this.updateTodo($f) : this.createTodo($f);
+    (this.model) ? this.updateTodo($f) : this.createTodo($f);
     this.closeForm();
   },
-  // saveForm: function(e) {
-  //   e.preventDefault();
-  //   var $f = $(e.target);
-  //   (this.model) ? this.updateTodo($f) : this.createTodo($f);
-  //   this.closeForm();
-  // },
   createTodo: function($f) {    
     var item = this.getFormObject($f);
-    console.log(App.todos.last_id);
     item.id = App.todos.nextID();
-    console.log(item.id);
-    console.log(item);
     App.todos.add(item);
-    console.log(App.todos);
   },
   updateTodo: function($f) { 
     var item = this.getFormObject($f);
