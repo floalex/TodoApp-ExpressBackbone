@@ -13,7 +13,7 @@ var IndexView = Backbone.View.extend({
   render: function() {
     this.$el.html(this.template({
       selected_title: App.selected_title,
-      selected_count: App.selected_todos.length
+      selected_count: App.selected_count
     }));
     App.el.html(this.$el);
   },

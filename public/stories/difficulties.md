@@ -13,3 +13,11 @@
   simply closing the form
 - Solution: Add `this.undelegateEvents();` in closeForm method, ensure no events
   attached to the view
+
+3. Navigation part
+- We should be able to navigate the todo list by selecting dates on the left
+- Should we put this function on the app level or the seidebar view?
+- How do we implement this feature? How to set default active class for All todos?
+- Remember index view has been separated from sidebar view
+- Add `$(".alltodos a").eq(0).click();` in sideview's render method creates  
+  "Uncaught RangeError: Maximum call stack size exceeded"

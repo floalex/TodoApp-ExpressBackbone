@@ -8,7 +8,7 @@ var App = {
     this.bindEvents();
   },
   addAllTodos: function() {
-    this.selected_todos.each(this.addOne);
+    this.todos.each(this.addOne);
   },
   addOne: function(todo) {
     new TodoView({
@@ -20,12 +20,14 @@ var App = {
       collection: this.todos
     });
   },
+  navigateTodos: function() {
+    // this.indexView();
+  },
   setStorage: function() {
     localStorage.setItem('todo_items', JSON.stringify(this.todos.toJSON()));
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    this.listenTo(this.index, "navigate_todos", this.navigateTodos);
     $(window).on("unload", this.setStorage.bind(this));
   }
 };
