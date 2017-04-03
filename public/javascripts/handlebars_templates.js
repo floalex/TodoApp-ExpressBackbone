@@ -61,11 +61,11 @@ this["JST"]["form"] = Handlebars.template({"1":function(container,depth0,helpers
 this["JST"]["index"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<input type=\"checkbox\" id=\"menu-toggle\" /><label for=\"menu-toggle\"><img src=\"images/toggle_list.png\" alt=\"toggle\" id=\"toggle-left\"/></label><div class=\"left-column\"></div><div class=\"main-section\"><dl class=\"table-title\"><dt>"
+  return "<dl class=\"table-title\"><dt>"
     + alias4(((helper = (helper = helpers.selected_title || (depth0 != null ? depth0.selected_title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"selected_title","hash":{},"data":data}) : helper)))
     + "</dt><dd><span class=\"todos-count\">"
     + alias4(((helper = (helper = helpers.selected_count || (depth0 != null ? depth0.selected_count : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"selected_count","hash":{},"data":data}) : helper)))
-    + "</span></dd></dl><table class=\"no-spacing\"><thead><tr id=\"add-todo\"><th><img src=\"images/plus_icon.png\" class=\"logo add\" alt=\"Add\" /> Add new to do</th></tr></thead><tbody id=\"item-area\"></tbody></table></div><div class=\"modal-section\"></div>";
+    + "</span></dd></dl><table class=\"no-spacing\"><thead><tr id=\"add-todo\"><th><img src=\"images/plus_icon.png\" class=\"logo add\" alt=\"Add\" /> Add new to do</th></tr></thead><tbody id=\"item-area\"></tbody></table>";
 },"useData":true});
 
 this["JST"]["sidebar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
@@ -79,7 +79,7 @@ this["JST"]["sidebar"] = Handlebars.template({"1":function(container,depth0,help
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "<ul class=\"alltodos\"><li><a href=\"#\" class=\"title\"><img src=\"images/todo_icon.png\" class=\"all-logo\" alt=\"All Todos\"/><p class=\"top-title\">All Todos</p></a><div id=\"all-todos-count\" class=\"count\">"
+  return "<nav class=\"nav-left\"><ul class=\"alltodos\"><li><a href=\"#\" class=\"title\"><img src=\"images/todo_icon.png\" class=\"all-logo\" alt=\"All Todos\"/><p class=\"top-title\">All Todos</p></a><div id=\"all-todos-count\" class=\"count\">"
     + alias4(((helper = (helper = helpers.total || (depth0 != null ? depth0.total : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"total","hash":{},"data":data}) : helper)))
     + "</div></li>"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.todos : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -87,7 +87,7 @@ this["JST"]["sidebar"] = Handlebars.template({"1":function(container,depth0,help
     + alias4(((helper = (helper = helpers.completed_total || (depth0 != null ? depth0.completed_total : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"completed_total","hash":{},"data":data}) : helper)))
     + "</div></li>"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.completes : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</ul>";
+    + "</ul></nav>";
 },"useData":true});
 
 this["JST"]["todo"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {

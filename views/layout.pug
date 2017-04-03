@@ -9,7 +9,15 @@ html
     +javascript_include_tag('handlebars_templates')
   body
     .column
-    
+      input#menu-toggle(type='checkbox')
+      |   
+      label(for='menu-toggle')
+        img#toggle-left(src='images/toggle_list.png', alt='toggle')
+      |        
+      .left-column
+      .modal-section
+      .main-section
+      
       block content
   
   +javascript_include_tag("application")
@@ -19,7 +27,5 @@ html
   script(type="text/javascript").
     App.todos = new Todos();
     App.selected_todos = new Todos(App.todos.toJSON());
-    App.selected_title = "All Todos";
-    App.selected_count = App.todos.length;
   +javascript_include_tag("router")
   block scripts

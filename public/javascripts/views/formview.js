@@ -1,5 +1,5 @@
 var FormView = Backbone.View.extend({
-  el: ".modal-section",
+  el: $(".modal-section"),
   template: App.templates.form,
   duration: 400,
   events: {    
@@ -16,6 +16,8 @@ var FormView = Backbone.View.extend({
   },
   saveForm: function(e) {
     e.preventDefault();
+    // prevent ghost view
+    e.stopImmediatePropagation();
     var $f = $(e.target);
     (this.model) ? this.updateTodo($f) : this.createTodo($f);
     this.closeForm();
@@ -37,8 +39,7 @@ var FormView = Backbone.View.extend({
   },
   closeForm: function() {
     this.undelegateEvents(); // prevent ghost view
-    $(".modal-layer").stop().fadeOut(this.duration);
-    $(".modal").stop().fadeOut(this.duration, function() {
+    $(".modal-layer, .modal").stop().fadeOut(this.duration, function() {
       $(".modal").remove();
     }.bind(this));
   },

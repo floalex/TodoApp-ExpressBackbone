@@ -21,3 +21,8 @@
 - Remember index view has been separated from sidebar view
 - Add `$(".alltodos a").eq(0).click();` in sideview's render method creates  
   "Uncaught RangeError: Maximum call stack size exceeded"
+- The problem is the index view and sidebar view is not really separated, need 
+  to revise layout.pug
+  * Note that since the pug view has the form view class element, need to add
+    e.stopImmediatePropagation when saving form to prevent ghost view(since the
+    events can bubble up all the way to .column now

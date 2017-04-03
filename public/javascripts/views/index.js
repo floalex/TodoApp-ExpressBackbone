@@ -1,7 +1,5 @@
 var IndexView = Backbone.View.extend({
-  attributes: {
-    id: "index"
-  },
+  el: $(".main-section"),
   template: App.templates.index,
   events: {
     "click #add-todo": "openBlankForm",    
@@ -15,7 +13,6 @@ var IndexView = Backbone.View.extend({
       selected_title: App.selected_title,
       selected_count: App.selected_count
     }));
-    App.el.html(this.$el);
   },
   initialize: function() {
     this.render();

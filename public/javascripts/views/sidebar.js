@@ -1,8 +1,5 @@
 var SidebarView = Backbone.View.extend({
-  tagName: "nav",
-  attributes: {
-    class: "nav-left"
-  },
+  el: $(".left-column"),
   template: App.templates.sidebar,
   events: {
     "click": "navigate"
@@ -16,11 +13,8 @@ var SidebarView = Backbone.View.extend({
     var count = $current.find(".count").text();
     App.selected_title = title;
     App.selected_count = count;
-    App.navigateTodos();
+    App.navigateTodos($current);
     return false;
-  },
-  setActiveTitle: function() {
-    
   },
   render: function() {
     this.$el.html(this.template({
@@ -29,7 +23,6 @@ var SidebarView = Backbone.View.extend({
       completes: this.collection.sortCompletedList(),
       completed_total: this.collection.completedList().length
     }));
-    this.$el.appendTo(App.el.find(".left-column"));
   },
   initialize: function() {
     this.render();
