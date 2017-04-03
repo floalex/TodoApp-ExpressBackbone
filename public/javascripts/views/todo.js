@@ -12,9 +12,9 @@ var TodoView = Backbone.View.extend({
     "click .list-item": "toggleComplete",
     "click .delete": "deleteItem"
   },
-  openEdit: function() {
+  openEdit: function(e) {
+    e.stopImmediatePropagation();
     new FormView({ model: this.model });
-    return false;
   },
   toggleComplete: function(e) {
     this.model.toggle();

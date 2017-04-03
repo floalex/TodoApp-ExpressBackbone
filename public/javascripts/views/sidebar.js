@@ -5,6 +5,8 @@ var SidebarView = Backbone.View.extend({
     "click": "navigate"
   },
   navigate: function(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
     var $current = $(e.target).closest("li");
     var class_name = "active";
     $current.closest("nav").find("." + class_name).removeClass(class_name);
@@ -14,7 +16,6 @@ var SidebarView = Backbone.View.extend({
     App.selected_title = title;
     App.selected_count = count;
     App.navigateTodos($current);
-    return false;
   },
   render: function() {
     this.$el.html(this.template({

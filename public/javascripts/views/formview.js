@@ -45,7 +45,9 @@ var FormView = Backbone.View.extend({
   },
   markComplete: function(e) {
     e.preventDefault();
+    e.stopImmediatePropagation();
     if (this.model) {
+      console.log(this.model.toJSON());
       this.model.set("completed", true);
       this.closeForm();
     } else {

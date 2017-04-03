@@ -11,5 +11,47 @@
     </tr>
   </thead>
   <tbody id="item-area">
+  
+    {{#each todos}}
+      {{#unless completed}}
+      <tr data-id="{{id}}">
+        <td class="list-item">     
+          <label>
+            <input type="checkbox" />
+            <span class="checkboxlabel"></span>
+          </label>
+          <a href="#" id="edit-form">{{title}}
+          - <span class="due_date">{{date}}</span>
+          </a> 
+        </td>              
+        <td class="delete">
+          <a href="#" class="delete">
+            <img src="images/icon_delete.png" alt="delete" />
+          </a>
+        </td>
+      </tr>
+    {{/unless}}
+    {{/each}}
+    {{#each todos}}
+    {{#if completed}}
+      <tr data-id="{{id}}">
+        <td class="list-item">     
+          <label>
+            <input type="checkbox" />
+            <span class="checkboxlabel"></span>
+          </label>
+          <a href="#" id="edit-form">{{title}}
+          - <span class="due_date">{{date}}</span>
+          </a> 
+        </td>              
+        <td class="delete">
+          <a href="#" class="delete">
+            <img src="images/icon_delete.png" alt="delete" />
+          </a>
+        </td>
+      </tr>
+     {{/if}}
+     {{/each}}
+    
   </tbody>
 </table>

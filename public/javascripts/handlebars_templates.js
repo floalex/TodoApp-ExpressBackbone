@@ -58,14 +58,35 @@ this["JST"]["form"] = Handlebars.template({"1":function(container,depth0,helpers
     + "</textarea></dd></dl><dl><dt></dt><dd><div class=\"button-group\"><input type=\"submit\" value=\"Save\" class=\"button save\"><input type=\"button\" value=\"Mark As Complete\" class=\"button complete\" /></div></dd></dl></fieldset></form></div>";
 },"useData":true});
 
-this["JST"]["index"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+this["JST"]["index"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.unless.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.completed : depth0),{"name":"unless","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<tr data-id=\""
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\"><td class=\"list-item\"><label><input type=\"checkbox\" /><span class=\"checkboxlabel\"></span></label><a href=\"#\" id=\"edit-form\">"
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+    + "- <span class=\"due_date\">"
+    + alias4(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"date","hash":{},"data":data}) : helper)))
+    + "</span></a> </td><td class=\"delete\"><a href=\"#\" class=\"delete\"><img src=\"images/icon_delete.png\" alt=\"delete\" /></a></td></tr>";
+},"4":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.completed : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<dl class=\"table-title\"><dt>"
     + alias4(((helper = (helper = helpers.selected_title || (depth0 != null ? depth0.selected_title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"selected_title","hash":{},"data":data}) : helper)))
     + "</dt><dd><span class=\"todos-count\">"
     + alias4(((helper = (helper = helpers.selected_count || (depth0 != null ? depth0.selected_count : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"selected_count","hash":{},"data":data}) : helper)))
-    + "</span></dd></dl><table class=\"no-spacing\"><thead><tr id=\"add-todo\"><th><img src=\"images/plus_icon.png\" class=\"logo add\" alt=\"Add\" /> Add new to do</th></tr></thead><tbody id=\"item-area\"></tbody></table>";
+    + "</span></dd></dl><table class=\"no-spacing\"><thead><tr id=\"add-todo\"><th><img src=\"images/plus_icon.png\" class=\"logo add\" alt=\"Add\" /> Add new to do</th></tr></thead><tbody id=\"item-area\">"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.todos : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.todos : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</tbody></table>";
 },"useData":true});
 
 this["JST"]["sidebar"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
