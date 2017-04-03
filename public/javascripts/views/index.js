@@ -31,7 +31,6 @@ var IndexView = Backbone.View.extend({
     e.stopImmediatePropagation();
     var result = confirm("Are you sure you want to delete this contact?");
     var id = this.getTodoId(e);
-    console.log(result);
     if (result) {
       this.collection.remove(id);
     } 

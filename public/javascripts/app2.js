@@ -3,8 +3,20 @@ var App = {
   el: $(".column"),
   indexView: function() {
     this.renderSidebar();
+    // this.index = new IndexView({ collection: this.todos });
     this.bindEvents();
   },
+  // addSelectedTodos: function() {
+  //   this.selected_todos.each(this.addOne);
+  // },
+  // addAllTodos: function() {
+  //   this.todos.each(this.addOne);
+  // },
+  // addOne: function(todo) {
+  //   new TodoView({
+  //     model: todo
+  //   });
+  // },
   renderSidebar: function() {
     this.sideView = new SidebarView({
       collection: this.todos
