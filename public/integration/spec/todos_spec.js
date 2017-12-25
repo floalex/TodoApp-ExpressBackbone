@@ -1,17 +1,17 @@
-describe('TodoList Tests', function() {
+describe('TodosList Tests', function() {
 
   it('Can add Model instances as objects and arrays.', function() {
-    var todos = new TodoList();
+    var todos = new Todos();
 
     expect(todos.length).toBe(0);
 
-    todos.add({ text: 'Clean the kitchen' });
+    todos.add({ title: 'Clean the kitchen' });
 
     // how many todos have been added so far?
     expect(todos.length).toBe(1);
 
     todos.add([
-        { text: 'Do the laundry', done: true },
+        { title: 'Do the laundry', completed: true },
         { text: 'Go to the gym'}
     ]);
 
